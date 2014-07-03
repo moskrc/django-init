@@ -1,0 +1,43 @@
+{% load common_tags %}
+
+{% if item.is_hidden %}
+    {{ item }}
+{% else %}
+    <div class="form-group {% if item.errors %}has-error{% endif %}">
+        {% if item|is_checkbox %}
+            <label class="col-lg-3 control-label">&nbsp;</label>
+            <div class="checkbox">
+            {% if no_labels %}{% else %}<label class="checkbox">{{ item.label }}{% endif %}
+                {{ item }}
+                {% if item.help_text %}
+                    <p class="help-block">
+                        {{ item.help_text }}
+                    </p>
+                {% endif %}
+            {% if no_labels %}{% else %}</label>{% endif %}
+            </div>
+        {% else %}
+            {% if no_labels %}
+                <label class="col-lg-3 control-label">&nbsp;</label>
+            {% else %}
+                <label class="col-lg-3 control-label">{{ item.label }}{% if item.field.required %}<span class="asteriskField">*</span>{% endif %}</label>
+            {% endif %}
+
+            <div class="{% if wrapper_class %}{{ wrapper_class }}{% else %}col-lg-9{% endif %}">
+                {{ item|htmlattributes:'class:form-control' }}
+
+                {% if item.errors %}
+                    <span class="help-block">
+                        {% for error in item.errors %}&nbsp;{{ error }}{% endfor %}
+                    </span>
+                {% else %}
+                    {% if item.help_text %}
+                        <span class="help-block">
+                            {{ item.help_text }}
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

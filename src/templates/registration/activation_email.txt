@@ -1,0 +1,6 @@
+Для завершение регистрации пройдите по этой ссылке:
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+
+Ссылка будет активна в течении {{ expiration_days }} дней.
+

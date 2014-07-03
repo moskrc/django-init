@@ -1,0 +1,19 @@
+{
+  "name": "sdam36ru",
+  "version": "0.0.1",
+  "authors": [
+    "Vitaliy Shishorin <moskrc@gmail.com>"
+  ],
+  "description": "js libs",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

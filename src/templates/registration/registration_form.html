@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load common_tags %}
+{% load flatblock_tags %}
+
+{% block js %}{{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#id_is_company').change(function() {
+                var dep_el = $('#id_company_name').parent().parent();
+                if (this.checked) {
+                    dep_el.slideDown()
+                } else {
+                    dep_el.slideUp()
+                }
+            }).change();
+            $('form').show();
+
+            $('.js-captcha-refresh').click(function(){
+                $.getJSON('/captcha/refresh/', {}, function(json) {
+                    $('#id_captcha_0').val(json.key);
+                    $('img.captcha').attr('src',json.image_url)
+                });
+                return false;
+            });
+        })
+    </script>
+{% endblock %}
+
+{% block header %}
+    <h2>Регистрация</h2>
+{% endblock %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-8">
+
+            {% block registration_form %}
+                <form action="{% url 'registration_register' %}" class="form-horizontal" method="POST" style="display: none">{% csrf_token %}
+
+                    {% include 'common/elements/form_errors.html' %}
+
+                    {% for hf in form.hidden_fields %}{{ hf }}{% endfor %}
+
+                    {% include 'common/elements/form_field.html' with label=1 item=form.first_name %}
+{#                    {% include 'common/elements/form_field.html' with label=1 item=form.is_company %}#}
+{#                    {% include 'common/elements/form_field.html' with label=1 item=form.company_name %}#}
+                    {% include 'common/elements/form_field.html' with label=1 item=form.email %}
+                    {% include 'common/elements/form_field.html' with label=1 item=form.password1 %}
+                    {% include 'common/elements/form_field.html' with label=1 item=form.captcha %}
+
+                    <div class="form-group ">
+                        <label class="control-label col-lg-3"></label>
+                        <div class="col-lg-9" style="padding-left: 30px">
+                            <a href="#" class='js-captcha-refresh'>Не видно цифр?</a>
+                        </div>
+                    </div>
+
+                    {% include 'common/elements/form_submit.html' with text='Регистрация' %}
+
+                </form>
+            {% endblock %}
+        </div>
+        <div class="col-lg-4">
+            {% flatblock "registration.text" %}
+        </div>
+    </div>
+{% endblock %}

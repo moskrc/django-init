@@ -1,0 +1,6 @@
+User-agent: Yandex
+Disallow: /admin/
+Host: %(sitename)s
+
+User-agent: *
+Disallow: /admin/

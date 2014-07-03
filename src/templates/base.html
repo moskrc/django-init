@@ -1,0 +1,35 @@
+{% extends "initial.html" %}
+
+{% block body %}
+    <div class="container top-tear"></div>
+    <div class="container wrapper">
+{#        {% include "elements/header.html" %}#}
+        <div class="row">
+            <div class="col-lg-12">
+                {% block breadcrumbs %}
+                {% endblock %}
+
+                {% block messages %}
+{#                    {% include "elements/messages.html" %}#}
+                {% endblock %}
+
+                <div class="header_text">
+                    {% block header %}
+                    {% endblock %}
+                </div>
+
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        <hr class="soften"/>
+
+{#        {% include "elements/footer.html" %}#}
+    </div>
+
+    <div class="container bottom-tear"></div>
+
+
+{#    {% include "elements/other.html" %}#}
+
+
+{% endblock %}

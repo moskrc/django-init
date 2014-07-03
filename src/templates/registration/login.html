@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load common_tags %}
+
+{% block header %}
+    <h2>Авториазация</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% block registration_form %}
+                <form action="{% url 'auth_login' %}" class="form-horizontal col-lg-8" method="POST">{% csrf_token %}
+                    {% include 'common/elements/form.html' with label=1 %}
+                    {% include 'common/elements/form_submit.html' with text='Войти' %}
+                </form>
+            {% endblock %}
+        </div>
+    </div>
+                <div class="row">
+                   <div class="col-lg-12">
+                   Если вы забыли свой пароль <a href="{% url 'auth_password_reset' %}">пройдите по этой ссылке</a>.
+                   </div>
+                </div>
+
+{% endblock %}

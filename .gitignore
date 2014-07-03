@@ -1,0 +1,11 @@
+*.pyc
+env/*
+.idea/*
+logs/*
+
+src/static_override/CACHE/
+src/main/settings_local.py
+src/media/*
+src/static/*
+src/sqlite3.db
+src/project.log
