@@ -30,6 +30,8 @@
 {% block body %}{% endblock %}
 
 {% block js %}
+    <script type="text/javascript" src="{% static "bower/jquery/dist/jquery.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "bower/jquery/dist/jquery.min.js" %}"></script>
     <script type="text/javascript" src="{% static "bower/bootstrap/dist/js/bootstrap.min.js" %}"></script>
     {% compress js %}
         <script type="text/javascript" src="{% static "js/script.js" %}"></script>

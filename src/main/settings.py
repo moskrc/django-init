@@ -72,6 +72,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 
     # 3rd party
     'south',
@@ -79,6 +81,7 @@ INSTALLED_APPS = (
     'markdown',
     'sorl.thumbnail',
     'compressor',
+    'redactor',
     
     'common'
 )
@@ -96,6 +99,11 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'main.urls'
 
 WSGI_APPLICATION = 'main.wsgi.application'
+
+SITE_ID = 1
+
+REDACTOR_OPTIONS = {'lang': 'ru'}
+REDACTOR_UPLOAD = 'uploads/'
 
 
 # Database

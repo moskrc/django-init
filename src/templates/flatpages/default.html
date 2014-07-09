@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{{flatpage.title}}</h1>
+{% endblock %}
+
+
+{% block breadcrumbs %}
+    {% sitetree_breadcrumbs from "main" %}
+{% endblock %}
+
+{% block content %}
+    <div id="flatpage">
+        {{ flatpage.content }}
+    </div>
+
+{% endblock %}
