@@ -23,4 +23,18 @@
                    </div>
                 </div>
 
+                            <ul class="clearfix horizontal" id="social-login-forms">
+                          <li>
+                                <button class="aui-button aui-style bitbucket-button" onClick="window.location.href='{% url 'social:begin' 'odnoklassniki-oauth2' %}'">
+                                    Bitbucket
+                                </button>
+                           </li>
+                           <li>
+                                <button class="aui-button aui-style box-button" onClick="window.location.href='{% url 'social:begin' 'vk-oauth2' %}'">
+                                    Box.com
+                                </button>
+                           </li>
+
+                        </ul>
+
 {% endblock %}

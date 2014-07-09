@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+{% load static %}
+{% load accounts_tags %}
+
+{% block header %}
+    <h1>{{ user.get_full_name }}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-3">
+            <dl>
+                <dt>Title</dt>
+                <dd>{{ user.title }}</dd>
+                <dt>Email</dt>
+                <dd>{{ user.email }}</dd>
+            </dl>
+        </div>
+
+        <div class="col-lg-9">
+            <h2>My Video</h2>
+            <hr/>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="thumbnail user-video-item">
+                        {% show_user_video user.video_1 %}
+                        <div class="caption">
+                            <h4>Business Card</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="thumbnail user-video-item">
+                        {% show_user_video user.video_2 %}
+                        <div class="caption">
+                            <h4>What I do</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="thumbnail user-video-item">
+                        {% show_user_video user.video_3 %}
+                        <div class="caption">
+                            <h4>Pro Video</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="thumbnail user-video-item">
+                        {% show_user_video user.video_4 %}
+                        <div class="caption">
+                            <h4>Who I need to meet</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="thumbnail user-video-item">
+                        {% show_user_video user.video_5 %}
+                        <div class="caption">
+                            <h4>Wants and needs</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}

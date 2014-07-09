@@ -1,0 +1,4 @@
+{{data.message|linebreaks}}
+
+---
+{{data.name}}<br/>

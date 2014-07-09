@@ -8,9 +8,14 @@ flatpages_wysiwyg.register()
 
 urlpatterns = patterns('',
     url(r'^$', 'main.views.home', name='home'),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^feedback/', include('feedback.urls')),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url('', include('social.apps.django_app.urls', namespace='social'))
 )
 
 if settings.DEBUG:

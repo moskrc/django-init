@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h1>New user</h1>
+
+<p><strong>Date:</strong> {{sended|date:"d.m.y H:i:s"}}</p>
+
+<h2>Info</h2>
+<table border="1" cellpadding="5" cellspacing="0" width="600px;">
+<tr><td>First Name:</td><td>{{user.first_name}}</td></tr>
+<tr><td>Last Name:</td><td>{{user.last_name}}</td></tr>
+<tr><td>Title:</td><td>{{user.title}}</td></tr>
+<tr><td>Email:</td><td><a href="mailto:{{user.email}}">{{user.email}}</a></td></tr>
+</table>
+
+</body>
+</html>

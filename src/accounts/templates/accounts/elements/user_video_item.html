@@ -1,0 +1,12 @@
+{% load embed_video_tags %}
+{% load static %}
+
+
+{% if video_url %}
+    {% video video_url as v %}
+        {{ v|embed:'399x355' }}
+    {% endvideo %}
+{% else %}
+    <img src="{% static 'img/video_not_available.png' %}"/>
+{% endif %}
+

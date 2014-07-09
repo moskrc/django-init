@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load path_match %}
+
+{% block header %}
+    <h1 class="pull-left">
+        {% block account_header %}
+        {% endblock %}
+    </h1>
+    <div class="pull-right">
+        <h3>
+            <a href="{% url 'accounts_ext_profile' user.id %}" class="btn btn-info ">View Profile</a>
+        </h3>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}
+
+{% block content %}
+
+    {% block account_content %}
+    {% endblock %}
+{% endblock %}

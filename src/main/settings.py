@@ -59,6 +59,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
+
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+
 )
 
 #################################################################################
@@ -81,8 +85,15 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'compressor',
     'ckeditor',
+    'constance.backends.database',
+    'registration',
+    'social.apps.django_app.default',
+    'flatblocks',
     
-    'common'
+    'common',
+    'accounts',
+    'feedback',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,6 +105,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTH_USER_MODEL='accounts.User'
 
 ROOT_URLCONF = 'main.urls'
 
@@ -146,6 +158,35 @@ USE_TZ = True
 CKEDITOR_UPLOAD_PATH = "uploads/ckeditor/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.odnoklassniki.OdnoklassnikiOAuth2',
+    'social.backends.vk.VKOAuth2',
+    'social.backends.yandex.YandexOAuth2',
+    'social.backends.email.EmailAuth',
+    'social.backends.username.UsernameAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.social_auth.associate_by_email',  # <--- enable this one
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details'
+)
+
+
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
+
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
 ##################################################################################
 
 try:

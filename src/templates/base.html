@@ -1,7 +1,23 @@
 {% extends "initial.html" %}
 
+{% load thumbnail %}
+{% load path_match %}
+
 {% block body %}
   <div class="container">
+
+<div class="login-line clearfix">
+    <ul class="list-inline pull-right">
+        <li class="{% path_match '^/feedback/$' %}"><a href="{% url 'feedback_index' %}">Обратная связь</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'accounts_profile' %}">{{ user.get_full_name }}</a> </li>
+        <li><a href="{% url 'auth_logout' %}">Выход</a></li>
+    {% else %}
+        <li><a href="{% url 'register' %}">Регистрация</a></li>
+        <li><a href="{% url 'auth_login' %}" data-toggle="modal">Войти</a></li>
+    {% endif %}
+    </ul>
+</div>
 
       <!-- Static navbar -->
       <div class="navbar navbar-default" role="navigation">
@@ -13,7 +29,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Project name</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
