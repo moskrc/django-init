@@ -1,10 +1,10 @@
 {
-  "name": "sdam36ru",
+  "name": "django-init",
   "version": "0.0.1",
   "authors": [
     "Vitaliy Shishorin <moskrc@gmail.com>"
   ],
-  "description": "js libs",
+  "description": "",
   "license": "MIT",
   "private": true,
   "ignore": [

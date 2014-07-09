@@ -1,4 +1,3 @@
 #!/usr/bin/env python
 import os
-os.system("find . -name \"*.pyc\" -exec rm {} \;")
-os.system("find . -name \"*.orig\" -exec rm {} \;")
+os.system('find . -type f \( -name  \*.pyc -o -name \*.orig \) -exec rm {} \;');

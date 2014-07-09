@@ -143,7 +143,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = "uploads/ckeditor/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 ##################################################################################
