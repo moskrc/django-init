@@ -85,6 +85,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'compressor',
     'ckeditor',
+    'constance',
     'constance.backends.database',
     'registration',
     'social.apps.django_app.default',
@@ -187,6 +188,9 @@ SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 
 
 CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+CONSTANCE_CONFIG = {
+    'MY_SETTINGS_KEY': (42, 'the answer to everything'),
+}
 ##################################################################################
 
 try:

@@ -10,6 +10,9 @@
     <ul class="list-inline pull-right">
         <li class="{% path_match '^/feedback/$' %}"><a href="{% url 'feedback_index' %}">Обратная связь</a></li>
     {% if user.is_authenticated %}
+        {% if user.is_staff %}
+            <li><a href="{% url 'admin:index' %}">Панель администрирования</a> </li>
+        {% endif %}
         <li><a href="{% url 'accounts_profile' %}">{{ user.get_full_name }}</a> </li>
         <li><a href="{% url 'auth_logout' %}">Выход</a></li>
     {% else %}
@@ -34,8 +37,6 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -50,9 +51,7 @@
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="./">Default</a></li>
-              <li><a href="../navbar-static-top/">Static top</a></li>
-              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+              <li><a href="./">Default</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->

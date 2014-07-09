@@ -1,0 +1,8 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | ADMIN{% endblock %}
+
+{% block branding %}<h1 id="site-name"><a href="/">PROJECT</a></h1>{% endblock %}
+
+{% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
