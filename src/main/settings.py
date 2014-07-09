@@ -80,7 +80,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'sorl.thumbnail',
     'compressor',
-    'redactor',
+    'ckeditor',
     
     'common'
 )
@@ -142,6 +142,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 ##################################################################################
 

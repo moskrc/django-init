@@ -8,6 +8,6 @@ flatpages_wysiwyg.register()
 urlpatterns = patterns('',
     url(r'^$', 'main.views.home', name='home'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
-    url(r'^redactor/', include('redactor.urls')),
+    (r'^ckeditor/', include('ckeditor.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
