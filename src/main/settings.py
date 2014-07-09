@@ -78,7 +78,6 @@ INSTALLED_APPS = (
     # 3rd party
     'south',
     'django_extensions',
-    'markdown',
     'sorl.thumbnail',
     'compressor',
     'redactor',
