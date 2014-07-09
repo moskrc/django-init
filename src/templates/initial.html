@@ -16,6 +16,8 @@
     <meta name="google-site-verification" content="" />
 
     {% block css %}
+        <link href="{% static "bower/bootstrap/dist/css/bootstrap.min.css" %}" media="all" type="text/css" rel="stylesheet"/>
+
         {% compress css %}
             <link href="{% static "css/style.scss" %}" media="all" type="text/x-sass" rel="stylesheet"/>
         {% endcompress %}
@@ -28,6 +30,7 @@
 {% block body %}{% endblock %}
 
 {% block js %}
+    <script type="text/javascript" src="{% static "bower/bootstrap/dist/js/bootstrap.min.js" %}"></script>
     {% compress js %}
         <script type="text/javascript" src="{% static "js/script.js" %}"></script>
     {% endcompress %}

@@ -1,7 +1,8 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #555;
-
 body {
-  font: 100% $font-stack;
-  background-color: $primary-color;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
 }
